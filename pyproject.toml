@@ -1,0 +1,25 @@
+[project]
+name = "birkeland"
+version = "0.1.0"
+description = "ETL pipeline for aurora"
+authors = [
+    {name = "ZephyrousChimes",email = "adam.footsteps@gmail.com"}
+]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "yfinance (>=0.2.65,<0.3.0)",
+    "requests (>=2.32.4,<3.0.0)",
+    "beautifulsoup4 (>=4.13.4,<5.0.0)",
+    "pandas (>=2.3.1,<3.0.0)",
+    "polars (>=1.31.0,<2.0.0)",
+    "duckdb (>=1.3.2,<2.0.0)",
+    "fredapi (>=0.5.2,<0.6.0)",
+    "pandas-ta (>=0.3.14b0,<0.4.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
