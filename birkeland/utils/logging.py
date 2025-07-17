@@ -1,18 +1,21 @@
 import logging
+from rich.logging import RichHandler
 
 def get_logger(name: str, level: int = logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)
     if logger.hasHandlers():
-        return logger  # Prevent duplicate handlers
+        return logger
 
     logger.setLevel(level)
 
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(level)
+    rich_handler = RichHandler(
+        level=level,
+        show_time=True,
+        show_level=True,
+        show_path=True,
+        markup=True,
+    )
 
-    formatter = logging.Formatter('[%(asctime)s] %(levelname)s - %(message)s')
-    console_handler.setFormatter(formatter)
-
-    logger.addHandler(console_handler)
+    logger.addHandler(rich_handler)
 
     return logger
